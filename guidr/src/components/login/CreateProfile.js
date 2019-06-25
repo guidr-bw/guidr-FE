@@ -1,12 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { addProfile } from '../../actions'
 
 class CreateProfile extends React.Component {
     state = {
-        imageUrl: '',
+        username: '',
         name: '',
         age: '',
         title: '',
-        tagline: ''
+        tagline: '',
+        profilePic: '',
     }
 
     changeHandler = e => {
@@ -17,18 +21,31 @@ class CreateProfile extends React.Component {
     }
 
     addProfile = e => {
-        this.props.history.push('/profile')
+        e.preventDefault();
+        this.props.addProfile(this.state)
+            .then(res => {
+                if (res) {
+                    this.props.history.push('/profile')
+                }
+            })
     }
 
     render () {
         return(
             <div>
                 <form>
-                    <h4>Add Image Url</h4>
+                    <h4>Username</h4>
+                    <input 
+                      type='text'
+                      name='username'
+                      value={this.state.username}
+                      onChange={this.changeHandler}
+                    />
+                    <h4>Profile Picture Url</h4>
                     <input 
                         type='text'
-                        name='imageUrl'
-                        value={this.state.imageUrl}
+                        name='profilePic'
+                        value={this.state.profilePic}
                         onChange={this.changeHandler}
                     />
                     <h4>Name</h4>
@@ -49,7 +66,7 @@ class CreateProfile extends React.Component {
                     <input 
                         type='text'
                         name='title'
-                        value={this.state.tagline}
+                        value={this.state.title}
                         onChange={this.changeHandler}
                     />
                     <h4>Tagline</h4>
@@ -66,4 +83,12 @@ class CreateProfile extends React.Component {
     }
 }
 
-export default CreateProfile
+const mapStateToProps = state => ({
+    error: state.error,
+    loggingIn: state.loggingIn
+  })
+  
+  export default connect(
+    mapStateToProps,
+    { addProfile }
+  )(CreateProfile)
