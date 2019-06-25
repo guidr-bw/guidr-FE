@@ -16,6 +16,11 @@ class NewTrip extends React.Component {
       })
     }
 
+    addNewTrip = e => {
+      e.preventDefault();
+      this.props.history.push('/trips')
+    }
+
     render(){
         return(
             <div>
@@ -63,7 +68,7 @@ class NewTrip extends React.Component {
                   value={this.state.description}
                   onChange={this.changeHandler}
                 /><br />
-                <button>Submit</button>
+                <button onClick={this.addNewTrip}>Submit</button>
             </div>
         )
     }
