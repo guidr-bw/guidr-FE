@@ -50,7 +50,7 @@ class CreateForm extends React.Component {
                       name='password'
                       value={this.state.password}
                       onChange={this.changeHandler}
-                    />
+                    /><br />
                     <button>Sign Up!</button>
                 </form>
             </div>

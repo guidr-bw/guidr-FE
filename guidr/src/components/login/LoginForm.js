@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
                       name='password'
                       value={this.state.password}
                       onChange={this.changeHandler}
-                    />
+                    /><br/>
                     <button>Sign In!</button>
                 </form>
             </div>
