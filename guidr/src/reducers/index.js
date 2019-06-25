@@ -5,21 +5,22 @@ import {
 } from '../actions';
 
 const initialState = {
-    loggingIn: false
+    loggingIn: false,
+    error: ''
 }
 
-function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
     switch(action.type) {
         case LOGIN_START:
             return {
                 ...state,
-                error: null,
+                error: '',
                 loggingIn: true
             }
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                error: null,
+                error: '',
                 loggingIn: false
             }
         case LOGIN_FAILURE:
@@ -28,6 +29,8 @@ function reducer(state = initialState, action) {
                 error: action.payload,
                 loggingIn: false
             }
+        default:
+            return state;
     }
 }
 

@@ -15,13 +15,17 @@ class CreateForm extends React.Component {
       })
     }
 
+    signUp = e => {
+      e.preventDefault();
+      this.props.history.push('/create-profile')
+    }
+
     render() {
         return (
             <div>
                 <form>
                     <h4>First Name</h4>
                     <input 
-                      placeholder=''
                       type='text'
                       name='firstName'
                       value={this.state.firstName}
@@ -29,7 +33,6 @@ class CreateForm extends React.Component {
                     />
                     <h4>Last Name</h4>
                     <input 
-                      placeholder=''
                       type='text'
                       name='lastName'
                       value={this.state.lastName}
@@ -37,7 +40,6 @@ class CreateForm extends React.Component {
                     />
                     <h4>Email</h4>
                     <input 
-                      placeholder=''
                       type='text'
                       name='email'
                       value={this.state.email}
@@ -45,13 +47,12 @@ class CreateForm extends React.Component {
                     />
                     <h4>Password</h4>
                     <input 
-                      placeholder=''
                       type='password'
                       name='password'
                       value={this.state.password}
                       onChange={this.changeHandler}
                     /><br />
-                    <button>Sign Up!</button>
+                    <button onClick={this.signUp}>Sign Up!</button>
                 </form>
             </div>
         )
