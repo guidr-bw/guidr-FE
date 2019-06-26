@@ -1,21 +1,45 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function TripDetail () {
-    return(
-        <div>
+import { fetchTrip } from '../../actions';
+
+class TripDetail extends React.Component {
+
+    componentDidMount(){
+        this.props.fetchTrip()
+    }
+
+    render () {
+        const trip = this.props.individualTripData;
+        console.log(trip)
+        return(
             <div>
-                <p>Edit Trip</p>
-                <p>Delete Trip</p>
+                <div>
+                    <p>Edit Trip</p>
+                    <p>Delete Trip</p>
+                </div>
+                <div>
+                    <h2>{trip.title}</h2>
+                    <h2>{trip.date}</h2>
+                </div>
+                <div>
+                    <p>{trip.distance}</p>
+                    <p>{trip.type}</p>
+                </div>
+                <img src={trip.image} alt='trip' />
+                <p>{trip.description}</p>
+                <Link to='/trips'>Back to Trips</Link>
             </div>
-            <div>
-                <h2>Cambodia</h2>
-                <h2>2013</h2>
-            </div>
-            <p>Lorem ipsum</p>
-            <Link to='/trips'>Back to Trips</Link>
-        </div>
-    )
+        )
+    }
 }
 
-export default TripDetail;
+const mapStateToProps = state => ({
+    individualTripData: state.individualTripData
+})
+
+export default connect(
+    mapStateToProps,
+    { fetchTrip }
+)(TripDetail)

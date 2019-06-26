@@ -2,12 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTrips } from '../../actions';
+import { getTrips, fetchTrip } from '../../actions';
 
 class Trips extends React.Component {
 
     componentDidMount() {
         this.props.getTrips();
+    }
+
+    fetchTrip = (tripId) => {
+        this.props.fetchTrip(tripId)
     }
 
     render(){
@@ -20,7 +24,7 @@ class Trips extends React.Component {
                         return (
                             <div key={trip.id}>
                                 <img src={trip.image} alt='trip' />
-                                <h2>{trip.title}</h2>
+                                <h2 onClick={this.fetchTrip(trip.id)}>{trip.title}</h2>
                                 <p>{trip.shortDescription}</p>
                             </div>
                         )
@@ -37,5 +41,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-        { getTrips }
+        { getTrips, fetchTrip }
 )(Trips)

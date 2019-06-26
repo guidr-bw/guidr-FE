@@ -21,7 +21,7 @@ function AppData () {
             <Route path='/new-trip' component={NewTrip} />
             <Route path='/trips' component={Trips} />
             <Route path='/profile' component={Profile} />
-            <Route path='/trip-details' component={TripDetail} />
+            <Route path='/trip-details/:id' component={TripDetail} />
         </div>
     )
 }
