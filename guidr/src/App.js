@@ -8,8 +8,8 @@ import AppData from './components/appdata/AppData';
 function App() {
   return (
     <div className="App">
-      <LoginRoute />
       <AppData />
+      <LoginRoute />
     </div>
   );
 }

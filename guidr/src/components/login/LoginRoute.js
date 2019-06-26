@@ -16,3 +16,12 @@ function LoginRoute () {
 }
 
 export default LoginRoute
+
+// [ 
+//     { username: "backpackHero",
+//     password:"1234"}, 
+//     { username: "scubascuba",
+//     password:"1234"}, 
+//     { username: "gr8Guide",
+//     password:"1234"}
+//     ]

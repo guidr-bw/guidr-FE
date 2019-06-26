@@ -57,3 +57,17 @@ export const getData = () => dispatch => {
         })
         .catch(err => console.log(err))
 }
+
+export const FETCH_TRIP_START = 'FETCH_TRIP_START';
+export const FETCH_TRIP_SUCCESS = 'FETCH_TRIP_SUCCESS';
+export const FETCH_TRIP_FAILURE = 'FETCH_TRIP_FAILURE';
+
+export const getTrips = () => dispatch => {
+    dispatch({ type: FETCH_TRIP_START })
+    return axiosWithAuth()
+        .get(`https://lambda-guidr.herokuapp.com/api/user/trips`)
+        .then(res => {
+            dispatch({ type: FETCH_TRIP_SUCCESS, payload: res.data.trips })
+        })
+        .catch(err => console.log(err))
+}

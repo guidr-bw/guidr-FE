@@ -13,6 +13,7 @@ class Profile extends React.Component {
     render(){
         return(
             <div>
+                <img src={this.props.userData.profilePic} alt='Profile' />
                 <div>
                     <h1>{this.props.userData.name}</h1>
                     <h2>{this.props.userData.age} years old</h2>
