@@ -10,15 +10,21 @@ import {
     FETCH_DATA_FAILURE,
     FETCH_TRIP_START,
     FETCH_TRIP_SUCCESS,
-    FETCH_TRIP_FAILURE
+    FETCH_TRIP_FAILURE,
+    ADD_TRIP_START,
+    ADD_TRIP_SUCCESS,
+    ADD_TRIP_FAILURE
 } from '../actions';
 
 const initialState = {
     creatingProfile: false,
     loggingIn: false,
     fetchingData: false,
+    fetchingTrip: false,
+    addingTrip: false,
     userData: {},
     tripData: [],
+    newTrip: {},
     error: ''
 }
 
@@ -97,6 +103,25 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 fetchingTrip: false
+            }
+        case ADD_TRIP_START:
+            return {
+                ...state,
+                error: '',
+                addingTrip: true
+            }
+        case ADD_TRIP_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                addingTrip: false,
+                newTrip: action.payload
+            }
+        case ADD_TRIP_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                addingTrip: false
             }
         default:
             return state;

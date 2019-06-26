@@ -71,3 +71,18 @@ export const getTrips = () => dispatch => {
         })
         .catch(err => console.log(err))
 }
+
+export const ADD_TRIP_START = 'ADD_TRIP_START';
+export const ADD_TRIP_SUCCESS = 'ADD_TRIP_SUCCESS';
+export const ADD_TRIP_FAILURE = 'ADD_TRIP_FAILURE';
+
+export const addTrip = state => dispatch => {
+    dispatch({ type: ADD_TRIP_START })
+    return axiosWithAuth()
+        .post(`https://lambda-guidr.herokuapp.com/api/trip`, state)
+        .then(res => {
+            dispatch({ type: ADD_TRIP_SUCCESS, payload: res.data})
+            return true;
+        })
+        .catch(err => console.log(err))
+}

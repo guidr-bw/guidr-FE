@@ -1,12 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { addTrip } from '../../actions';
 
 class NewTrip extends React.Component {
     state = {
-        tripName: '',
-        timeFrame: '',
-        length: '',
-        tripType: '',
+        user_id: this.props.userId.id,
+        title: '',
+        shortDescription: '',
         description: '',
+        isProfessional: false,
+        type: 1,
+        duration: '',
+        distance: '',
+        date: '',
+        image: '',
     }
 
     changeHandler = e => {
@@ -18,35 +26,48 @@ class NewTrip extends React.Component {
 
     addNewTrip = e => {
       e.preventDefault();
-      this.props.history.push('/trips')
+      this.props.addTrip(this.state)
+        .then(res => {
+          if (res) {
+            this.props.history.push('/trips')
+          }
+        })
     }
 
     render(){
+      console.log(this.props.userId.id)
         return(
             <div>
                 <h4>Name of Trip</h4>
                 <input 
                   type='text'
-                  name='tripName'
-                  value={this.state.tripName}
+                  name='title'
+                  value={this.state.title}
                   onChange={this.changeHandler}
                 />
-                <h4>Timeframe</h4>
+                <h4>Short Description</h4>
+                <input 
+                  type='text'
+                  name='shortDescription'
+                  value={this.state.shortDescription}
+                  onChange={this.changeHandler}
+                />
+                <h4>Trip Duration</h4>
                 <input 
                   type='number'
-                  name='timeFrame'
-                  value={this.state.timeFrame}
+                  name='duration'
+                  value={this.state.duration}
                   onChange={this.changeHandler}
                 />
                 <form>
                     <label><input type='radio' name='business' value='professional'/>Professional</label>
                     <label><input type='radio' name='business' value='personal'/>Personal</label>
                 </form>
-                <h4>Length</h4>
+                <h4>Trip Distance</h4>
                 <input 
                   type='number'
-                  name='length'
-                  value={this.state.length}
+                  name='distance'
+                  value={this.state.distance}
                   onChange={this.changeHandler}
                 />
                 <form>
@@ -54,24 +75,39 @@ class NewTrip extends React.Component {
                     <label><input type='radio' name='duration' value='km' />Km</label>
                     <label><input type='radio' name='duration' value='days' />Days</label>
                 </form>
-                <h4>Type of Trip</h4>
+                <h4>Date of Trip</h4>
                 <input 
                   type='text'
-                  name='tripType'
-                  value={this.state.tripType}
+                  name='date'
+                  value={this.state.date}
                   onChange={this.changeHandler}
                 />
-                <h4>Description</h4>
+                <h4>Trip Summary</h4>
                 <input 
                   type='text'
                   name='description'
                   value={this.state.description}
                   onChange={this.changeHandler}
-                /><br />
+                />
+                <h4>Trip Image URL</h4>
+                <input 
+                  type='text'
+                  name='image'
+                  value={this.state.image}
+                  onChange={this.changeHandler}
+                />
+                <br />
                 <button onClick={this.addNewTrip}>Submit</button>
             </div>
         )
     }
 }
 
-export default NewTrip
+const mapStateToProps = state => ({
+  userId: state.userData
+})
+
+export default connect(
+  mapStateToProps,
+  { addTrip }
+) (NewTrip)
