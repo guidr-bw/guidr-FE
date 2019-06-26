@@ -2,22 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { fetchTrip } from '../../actions';
+import { fetchTrip, deleteTrip } from '../../actions';
 
 class TripDetail extends React.Component {
 
-    componentDidMount(){
-        this.props.fetchTrip()
+    deleteTrip = (id) => {
+        this.props.deleteTrip(id)
+        this.props.history.push(`/trips`)
     }
-
+    
     render () {
         const trip = this.props.individualTripData;
-        console.log(trip)
         return(
             <div>
                 <div>
                     <p>Edit Trip</p>
-                    <p>Delete Trip</p>
+                    <p onClick={() => this.deleteTrip(trip.id)}>Delete Trip</p>
                 </div>
                 <div>
                     <h2>{trip.title}</h2>
@@ -41,5 +41,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { fetchTrip }
+    { fetchTrip, deleteTrip }
 )(TripDetail)

@@ -94,9 +94,21 @@ export const FETCH_TRIP_DATA_FAILURE = 'FETCH_TRIP_DATA_FAILURE';
 export const fetchTrip = (trip) => dispatch => {
     dispatch({ type: FETCH_TRIP_DATA_START })
     return axiosWithAuth()
-        .get(`https://lambda-guidr.herokuapp.com/api/trip/1`)
+        .get(`https://lambda-guidr.herokuapp.com/api/trip/${trip}`)
         .then(res => {
             dispatch({ type: FETCH_TRIP_DATA_SUCCESS, payload: res.data })
         })
+        .catch(err => console.log(err))
+}
+
+export const DELETE_TRIP_START = 'DELETE_TRIP_START';
+export const DELETE_TRIP_SUCCESS = 'DELETE_TRIP_SUCCESS';
+export const DELETE_TRIP_FAILURE = 'DELETE_TRIP_FAILURE';
+
+export const deleteTrip = (id) => dispatch => {
+    dispatch({ type: DELETE_TRIP_START})
+    return axiosWithAuth()
+        .delete(`https://lambda-guidr.herokuapp.com/api/trip/${id}`)
+        .then(res => console.log(res))
         .catch(err => console.log(err))
 }

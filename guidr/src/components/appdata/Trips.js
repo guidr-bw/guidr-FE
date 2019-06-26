@@ -12,6 +12,7 @@ class Trips extends React.Component {
 
     fetchTrip = (tripId) => {
         this.props.fetchTrip(tripId)
+        this.props.history.push(`/trip-details/${tripId}`)
     }
 
     render(){
@@ -24,7 +25,7 @@ class Trips extends React.Component {
                         return (
                             <div key={trip.id}>
                                 <img src={trip.image} alt='trip' />
-                                <h2 onClick={this.fetchTrip(trip.id)}>{trip.title}</h2>
+                                <h2 onClick={() => this.fetchTrip(trip.id)}>{trip.title}</h2>
                                 <p>{trip.shortDescription}</p>
                             </div>
                         )
