@@ -5,12 +5,13 @@ import { addProfile } from '../../actions'
 
 class CreateProfile extends React.Component {
     state = {
+        profilePic: '',
         username: '',
         name: '',
         age: '',
         title: '',
+        yearsAsGuide: '',
         tagline: '',
-        profilePic: '',
     }
 
     changeHandler = e => {
@@ -67,6 +68,13 @@ class CreateProfile extends React.Component {
                         type='text'
                         name='title'
                         value={this.state.title}
+                        onChange={this.changeHandler}
+                    />
+                    <h4>Years as a Guide</h4>
+                    <input 
+                        type='number'
+                        name='yearsAsGuide'
+                        value={this.state.yearsAsGuide}
                         onChange={this.changeHandler}
                     />
                     <h4>Tagline</h4>
