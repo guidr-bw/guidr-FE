@@ -35,11 +35,25 @@ export const CREATE_PROFILE_FAILURE = "CREATE_PROFILE_FAILURE";
 export const addProfile = creds => dispatch => {
     dispatch({ type: CREATE_PROFILE_START })
     return axiosWithAuth()
-        .post(`https://lambda-guidr.herokuapp.com/api/auth/update`, creds)
-        .then(res => {
+        .put(`https://lambda-guidr.herokuapp.com/api/auth/update`, creds)
+        .then(res => { console.log(res)
             localStorage.setItem('token', res.data.token);
             dispatch({ type: CREATE_PROFILE_SUCCESS })
             return true;
         })
         .catch(err => console.log(err.response))
+}
+
+export const FETCH_DATA_START = 'FETCH_DATA_START';
+export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
+export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
+
+export const getData = () => dispatch => {
+    dispatch({ type: FETCH_DATA_START })
+    return axiosWithAuth()
+        .get(`https://lambda-guidr.herokuapp.com/api/user`)
+        .then(res => {
+            dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
+        })
+        .catch(err => console.log(err))
 }
