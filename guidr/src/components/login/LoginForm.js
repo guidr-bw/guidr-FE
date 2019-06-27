@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import { login } from '../../actions'
 
@@ -53,6 +54,7 @@ class LoginForm extends React.Component {
                       ''
                     )}
                 </form>
+                <Link to='/create-account'>New to guidr? Register Here!</Link>
             </div>
         )
     }

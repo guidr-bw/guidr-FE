@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+  
+  .header {
+    height: 20rem;
+    background-image: url('./img/background.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    h1 {
+      color: white;
+    }
+  }
+}
+
+body {
+  background-color: #1a0000;
+}
+

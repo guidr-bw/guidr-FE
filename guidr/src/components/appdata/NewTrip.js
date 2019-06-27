@@ -11,8 +11,8 @@ class NewTrip extends React.Component {
         description: '',
         isProfessional: false,
         type: 1,
-        duration: '',
-        distance: '',
+        duration: 0,
+        distance: 0,
         date: '',
         image: '',
     }
@@ -60,8 +60,24 @@ class NewTrip extends React.Component {
                   onChange={this.changeHandler}
                 />
                 <form>
-                    <label><input type='radio' name='business' value='professional'/>Professional</label>
-                    <label><input type='radio' name='business' value='personal'/>Personal</label>
+                <label>
+                  <input 
+                    type='radio' 
+                    name ='isProfessional' 
+                    value='true'
+                    onChange={this.changeHandler}
+                  />
+                    Professional
+                </label>
+                <label>
+                  <input 
+                    type='radio' 
+                    name ='isProfessional' 
+                    value='false'
+                    onChange={this.changeHandler}
+                  />
+                    Personal
+                </label>
                 </form>
                 <h4>Trip Distance</h4>
                 <input 

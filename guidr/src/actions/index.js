@@ -95,7 +95,9 @@ export const fetchTrip = (trip) => dispatch => {
     dispatch({ type: FETCH_TRIP_DATA_START })
     return axiosWithAuth()
         .get(`https://lambda-guidr.herokuapp.com/api/trip/${trip}`)
-        .then(res => {
+        .then(res => { 
+            res.data.date = res.data.date.toString()
+            console.log('RES.DATA', res.data)
             dispatch({ type: FETCH_TRIP_DATA_SUCCESS, payload: res.data })
         })
         .catch(err => console.log(err))
@@ -110,5 +112,20 @@ export const deleteTrip = (id) => dispatch => {
     return axiosWithAuth()
         .delete(`https://lambda-guidr.herokuapp.com/api/trip/${id}`)
         .then(res => console.log(res))
+        .catch(err => console.log(err))
+}
+
+export const EDIT_TRIP_START = 'EDIT_TRIP_START';
+export const EDIT_TRIP_SUCCESS = 'EDIT_TRIP_SUCCESS';
+export const EDIT_TRIP_FAILURE = 'EDIT_TRIP_FAILURE';
+
+export const editTrip = (id, trip) => dispatch => {
+    dispatch({ type: EDIT_TRIP_START})
+    console.log('TRIP', trip)
+    return axiosWithAuth()
+        .put(`https://lambda-guidr.herokuapp.com/api/trip/${id}`, trip)
+        .then(res =>
+            dispatch({ type: EDIT_TRIP_SUCCESS, payload: res.data })
+        )
         .catch(err => console.log(err))
 }
