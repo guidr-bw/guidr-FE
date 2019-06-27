@@ -6,9 +6,16 @@
     background-image: url('./img/background.png');
     background-repeat: no-repeat;
     background-size: 100%;
+    background-position: center top;
 
     h1 {
+      margin: 0px;
+      padding-top: 60px;
       color: white;
+    }
+
+    h2 { 
+      margin: 0px;
     }
   }
 }

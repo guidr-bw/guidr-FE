@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
+import './LoginForm.scss';
+import sandImage from '../../img/sandImage.png'
+
 import { login } from '../../actions'
 
 class LoginForm extends React.Component {
@@ -30,7 +33,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='loginForm'>
                 <h2>Login</h2>
                 <form>
                     <h4>Username</h4>
@@ -46,15 +49,20 @@ class LoginForm extends React.Component {
                       name='password'
                       value={this.state.password}
                       onChange={this.changeHandler}
-                    /><br/>
-                    <button onClick={this.signIn}>Sign In!</button>
+                    />
+                    <div className='register'>
+                      <Link className='registerLink' to='/create-account'>New to guidr? Register Here!</Link>
+                    </div>
+                    <div className='submitButton'>
+                      <button onClick={this.signIn}>Sign In!</button>
+                    </div>
                     {this.props.loggingIn ? (
                       <h4>logging in...</h4>
                     ) : (
                       ''
                     )}
                 </form>
-                <Link to='/create-account'>New to guidr? Register Here!</Link>
+                <img className='sandImage' src={sandImage} alt='sandy desert'/>
             </div>
         )
     }
