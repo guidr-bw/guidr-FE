@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import './Trips.scss'
 import { getTrips, fetchTrip } from '../../actions';
 
 class Trips extends React.Component {
@@ -17,20 +18,23 @@ class Trips extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className='tripFeed'>
                 <h2>Trips</h2>
-                <Link to='/new-trip'>Add a new trip</Link>
+                <Link className='tripFeedLink' to='/new-trip'>Add a new trip</Link>
                 <section>
                     {this.props.tripData.map(trip => {
                         return (
-                            <div key={trip.id}>
+                            <div className='trip' onClick={() => this.fetchTrip(trip.id)} key={trip.id}>
                                 <img src={trip.image} alt='trip' />
-                                <h2 onClick={() => this.fetchTrip(trip.id)}>{trip.title}</h2>
-                                <p>{trip.shortDescription}</p>
+                                <div className='tripContent'>
+                                    <h2>{trip.title}</h2>
+                                    <p>{trip.shortDescription}</p>
+                                </div>
                             </div>
                         )
                     })}
                 </section>
+                <Link className='tripFeedLink' to='/profile'>Back to Profile</Link>
             </div>
         )
     }
