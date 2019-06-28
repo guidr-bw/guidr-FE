@@ -10,6 +10,17 @@ input {
     padding: 5px;
 }
 
+@media screen and (min-width: 800px){
+    .loginForm {
+        margin: 200px 0;
+    }
+
+    .sandImage {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
 form {
     // border: 1px solid white;
     width: 65%;

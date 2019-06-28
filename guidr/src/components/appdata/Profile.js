@@ -15,12 +15,14 @@ class Profile extends React.Component {
     render(){
         return(
             <div className='userData'>
-                <img className='profileImg' src={this.props.userData.profilePic} alt='Profile' />
-                <div className='userInfo'>
-                    <h1>{this.props.userData.name}</h1>
-                    <h2>{this.props.userData.age} years old</h2>
-                    <h2>{this.props.userData.title}</h2>
-                    <h2>{this.props.userData.yearsAsGuide} years as a guide</h2>
+                <div className='userHead'>
+                    <img className='profileImg' src={this.props.userData.profilePic} alt='Profile' />
+                    <div className='userInfo'>
+                        <h1>{this.props.userData.name}</h1>
+                        <h2>{this.props.userData.age} years old</h2>
+                        <h2>{this.props.userData.title}</h2>
+                        <h2>{this.props.userData.yearsAsGuide} years as a guide</h2>
+                    </div>
                 </div>
                 <p>{this.props.userData.tagline}</p>
                 <div className='profileLinks'>

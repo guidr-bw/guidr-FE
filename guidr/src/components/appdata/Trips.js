@@ -34,7 +34,9 @@ class Trips extends React.Component {
                         )
                     })}
                 </section>
-                <Link className='tripFeedLink' to='/app/profile'>Back to Profile</Link>
+                <div className='linkDiv'>
+                    <Link className='tripFeedLink' to='/app/profile'>Back to Profile</Link>
+                </div>
             </div>
         )
     }

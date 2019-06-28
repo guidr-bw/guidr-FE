@@ -38,8 +38,10 @@ class TripDetail extends React.Component {
                     <p>{trip.distance} miles</p>
                     {/* <p>{trip.type}</p> */}
                 </div>
-                <img src={trip.image} alt='trip' />
-                <p>{trip.description}</p>
+                <div className='tripBody'>
+                    <img src={trip.image} alt='trip' />
+                    <p>{trip.description}</p>
+                </div>
                 <div className='linky'>
                     <Link className='tripLink' to='/app/trips'>Back to Trips</Link>
                 </div>
