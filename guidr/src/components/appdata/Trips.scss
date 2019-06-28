@@ -2,15 +2,20 @@
     color: white;
     margin-bottom: 40px;
 
+    .linkDiv {
+        margin-top: 50px;
+    }
+
     .tripFeedLink {
         color: white;
     }
 }
 
 .trip {
-    margin: 50px 0;
+    margin: 50px auto;
     display: flex;
     align-items: center;
+    max-width: 1000px;
 
     img {
         width: 40%;
