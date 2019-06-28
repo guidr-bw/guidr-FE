@@ -33,7 +33,7 @@ class EditTrip extends React.Component {
       this.props.editTrip(id, this.state)
         .then(res => {
           if (res) {
-            this.props.history.push(`/trip-details/${this.props.trip.id}`)
+            this.props.history.push(`/app/trip-details/${this.props.trip.id}`)
           }
         })
     }

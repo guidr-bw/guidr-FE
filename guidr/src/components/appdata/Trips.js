@@ -13,14 +13,14 @@ class Trips extends React.Component {
 
     fetchTrip = (tripId) => {
         this.props.fetchTrip(tripId)
-        this.props.history.push(`/trip-details/${tripId}`)
+        this.props.history.push(`/app/trip-details/${tripId}`)
     }
 
     render(){
         return(
             <div className='tripFeed'>
                 <h2>Trips Feed</h2>
-                <Link className='tripFeedLink' to='/new-trip'>Add a new trip</Link>
+                <Link className='tripFeedLink' to='/app/new-trip'>Add a new trip</Link>
                 <section>
                     {this.props.tripData.map(trip => {
                         return (
@@ -34,7 +34,7 @@ class Trips extends React.Component {
                         )
                     })}
                 </section>
-                <Link className='tripFeedLink' to='/profile'>Back to Profile</Link>
+                <Link className='tripFeedLink' to='/app/profile'>Back to Profile</Link>
             </div>
         )
     }

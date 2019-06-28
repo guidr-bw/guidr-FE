@@ -25,7 +25,7 @@ class Profile extends React.Component {
                 <p>{this.props.userData.tagline}</p>
                 <div className='profileLinks'>
                     <Link className='editProfile' to='/create-profile'>Edit Profile</Link>
-                    <Link className='viewTripsBtn' to='/trips'>View Trips</Link>
+                    <Link className='viewTripsBtn' to='/app/trips'>View Trips</Link>
                 </div>
             </div>
         )

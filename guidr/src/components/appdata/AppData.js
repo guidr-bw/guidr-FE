@@ -10,16 +10,16 @@ import EditTrip from './EditTrip';
 function AppData () {
     return(
         <div>
-            <nav>
-                <Link to='/profile'>Profile</Link>
-                <Link to='/trips'>Trips</Link>
+            {/* <nav>
+                <Link to='/app/profile'>Profile</Link>
+                <Link to='/app/trips'>Trips</Link>
                 <Link to='/'>Sign Out</Link>
-            </nav>
-            <Route path='/new-trip' component={NewTrip} />
-            <Route path='/trips' component={Trips} />
-            <Route path='/profile' component={Profile} />
-            <Route path='/trip-details/:id' component={TripDetail} />
-            <Route path='/edit-trip/:id' component={EditTrip} />
+            </nav> */}
+            <Route path='/app/new-trip' component={NewTrip} />
+            <Route path='/app/trips' component={Trips} />
+            <Route path='/app/profile' component={Profile} />
+            <Route path='/app/trip-details/:id' component={TripDetail} />
+            <Route path='/app/edit-trip/:id' component={EditTrip} />
         </div>
     )
 }

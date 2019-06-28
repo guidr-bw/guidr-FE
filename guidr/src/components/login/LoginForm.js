@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
       this.props.login(this.state)
         .then(res => {
           if (res) {
-            this.props.history.push('/profile')
+            this.props.history.push('/app/profile')
           }
         })
       this.setState({ password: '' })

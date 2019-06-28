@@ -31,7 +31,7 @@ class NewTrip extends React.Component {
       this.props.addTrip(this.state)
         .then(res => {
           if (res) {
-            this.props.history.push('/trips')
+            this.props.history.push('/app/trips')
           }
         })
     }
