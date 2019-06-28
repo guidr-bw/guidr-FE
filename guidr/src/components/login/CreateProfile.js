@@ -93,6 +93,11 @@ class CreateProfile extends React.Component {
                         <button onClick={this.addProfile}>Submit</button>
                     </div>
                 </form>
+                {this.props.error ? (
+                  <h4>{this.props.error}</h4>
+                ) : (
+                  ''
+                )}
             </div>
         )
     }

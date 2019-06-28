@@ -60,6 +60,11 @@ class RegisterForm extends React.Component {
                     ) : (
                       ''
                     )}
+                    {this.props.error ? (
+                      <h4>{this.props.error}</h4>
+                    ) : (
+                      ''
+                    )}
                 </form>
                 <img className='sandImage' src={sandImage} alt='sandy desert'/>
             </div>

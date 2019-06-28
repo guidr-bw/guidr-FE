@@ -13,7 +13,9 @@ export const login = creds => dispatch => {
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.username })
             return true;
         })
-        .catch(err => console.log(err.response))
+        .catch(err => {
+            dispatch({ type: LOGIN_FAILURE, payload: err.response.data.message })
+        })
 }
 
 export const register = creds => dispatch => {
@@ -25,7 +27,9 @@ export const register = creds => dispatch => {
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.username })
             return true;
         })
-        .catch(err => console.log(err.response))
+        .catch(err => {
+            dispatch({ type: LOGIN_FAILURE, payload: err.response.data.message })
+        })
 }
 
 export const CREATE_PROFILE_START = "CREATE_PROFILE_START";
@@ -41,7 +45,9 @@ export const addProfile = creds => dispatch => {
             dispatch({ type: CREATE_PROFILE_SUCCESS })
             return true;
         })
-        .catch(err => console.log(err.response))
+        .catch(err => {
+            dispatch({ type: CREATE_PROFILE_FAILURE, payload: err.response.data.message })
+        })
 }
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
