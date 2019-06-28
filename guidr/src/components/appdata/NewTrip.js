@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './NewTrip.scss'
+
 import { addTrip } from '../../actions';
 
 class NewTrip extends React.Component {
@@ -37,7 +39,7 @@ class NewTrip extends React.Component {
     render(){
       console.log(this.props.userId.id)
         return(
-            <div>
+            <div className='formContainer'>
                 <h4>Name of Trip</h4>
                 <input 
                   type='text'
@@ -54,43 +56,40 @@ class NewTrip extends React.Component {
                 />
                 <h4>Trip Duration</h4>
                 <input 
+                  className='integer'
                   type='number'
                   name='duration'
                   value={this.state.duration}
                   onChange={this.changeHandler}
                 />
                 <form>
-                <label>
-                  <input 
-                    type='radio' 
-                    name ='isProfessional' 
-                    value='true'
-                    onChange={this.changeHandler}
-                  />
+                  <label>
                     Professional
-                </label>
-                <label>
-                  <input 
-                    type='radio' 
-                    name ='isProfessional' 
-                    value='false'
-                    onChange={this.changeHandler}
-                  />
+                    <input 
+                      type='radio' 
+                      name ='isProfessional' 
+                      value={true}
+                      onChange={this.changeHandler}
+                    />
+                  </label>
+                  <label>
                     Personal
-                </label>
+                    <input 
+                      type='radio' 
+                      name ='isProfessional' 
+                      value={false}
+                      onChange={this.changeHandler}
+                    />
+                  </label>
                 </form>
-                <h4>Trip Distance</h4>
+                <h4>Trip Distance in Miles</h4>
                 <input 
+                  className='integer'
                   type='number'
                   name='distance'
                   value={this.state.distance}
                   onChange={this.changeHandler}
                 />
-                <form>
-                    <label><input type='radio' name='duration' value='miles' />Miles</label>
-                    <label><input type='radio' name='duration' value='km' />Km</label>
-                    <label><input type='radio' name='duration' value='days' />Days</label>
-                </form>
                 <h4>Date of Trip</h4>
                 <input 
                   type='text'
@@ -99,7 +98,11 @@ class NewTrip extends React.Component {
                   onChange={this.changeHandler}
                 />
                 <h4>Trip Summary</h4>
-                <input 
+                <textarea 
+                  className='descriptionBox'
+                  rows='4'
+                  wrap='hard'
+                  cols='48'
                   type='text'
                   name='description'
                   value={this.state.description}
@@ -112,8 +115,9 @@ class NewTrip extends React.Component {
                   value={this.state.image}
                   onChange={this.changeHandler}
                 />
-                <br />
-                <button onClick={this.addNewTrip}>Submit</button>
+                <div className='submitButton'>
+                  <button onClick={this.addNewTrip}>Submit</button>
+                </div>
             </div>
         )
     }

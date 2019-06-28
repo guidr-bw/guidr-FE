@@ -19,7 +19,7 @@ class Trips extends React.Component {
     render(){
         return(
             <div className='tripFeed'>
-                <h2>Trips</h2>
+                <h2>Trips Feed</h2>
                 <Link className='tripFeedLink' to='/new-trip'>Add a new trip</Link>
                 <section>
                     {this.props.tripData.map(trip => {

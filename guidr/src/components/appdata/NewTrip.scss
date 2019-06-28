@@ -1,0 +1,47 @@
+.formContainer {
+    color: white;
+    width: 75%;
+    margin: 0 auto;
+    text-align: left;
+
+    h4 {
+        margin-bottom: 2px;
+    }
+
+    .descriptionBox {
+        height: 100px;
+        width: 96%;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .integer {
+        width: 70%;
+    }
+
+    form {
+        margin: 15px 0;
+
+        :last-child input {
+            margin: 10px 0 0 30px;
+            background-color: black;
+        }
+    }
+
+    label {
+        display: flex;
+        font-size: 1.1rem;
+        align-items: center;
+
+    }
+
+    .submitButton {
+        text-align: right;
+        margin: 50px 0;
+
+        button {
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+    }
+}
