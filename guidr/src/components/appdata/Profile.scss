@@ -1,0 +1,55 @@
+.profileImg {
+    width: 60%;
+    border: 2px solid #888;
+    border-radius: 1000px;
+    margin-top: 20px;
+}
+
+.userData {
+
+    p {
+        color: white;
+        text-align: left;
+        margin: 25px;
+        font-size: 1.4rem;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+    }
+
+    .userInfo {
+        text-align: left;
+        margin: 40px 20px;
+
+        h1 {
+            color: white;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h2 {
+            color: #bbb;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.profileLinks {
+    display: flex;
+    margin: 50px 20px;
+    justify-content: space-between;
+
+    .editProfile {
+        color: white;
+    }
+
+    .viewTripsBtn{
+        color: black;
+        background-color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+}

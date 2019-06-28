@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './CreateProfile.scss'
 import { addProfile } from '../../actions'
 
 class CreateProfile extends React.Component {
@@ -26,14 +27,14 @@ class CreateProfile extends React.Component {
         this.props.addProfile(this.state)
             .then(res => {
                 if (res) {
-                    this.props.history.push('/profile')
+                    this.props.history.push('/app/profile')
                 }
             })
     }
 
     render () {
         return(
-            <div>
+            <div className='profileForm'>
                 <form>
                     <h4>Username</h4>
                     <input 
@@ -78,14 +79,25 @@ class CreateProfile extends React.Component {
                         onChange={this.changeHandler}
                     />
                     <h4>Tagline</h4>
-                    <input 
+                    <textarea 
+                        className='taglineBox'
+                        rows='4'
+                        wrap='hard'
+                        cols='48'
                         type='text'
                         name='tagline'
                         value={this.state.tagline}
                         onChange={this.changeHandler}
-                    /> <br />
-                    <button onClick={this.addProfile}>Submit</button>
+                    />
+                    <div className='profileBtn'>
+                        <button onClick={this.addProfile}>Submit</button>
+                    </div>
                 </form>
+                {this.props.error ? (
+                  <h4>{this.props.error}</h4>
+                ) : (
+                  ''
+                )}
             </div>
         )
     }

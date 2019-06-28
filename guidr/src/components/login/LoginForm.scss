@@ -1,0 +1,45 @@
+.loginForm {
+    color: white
+}
+
+input {
+    width: 95%;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+form {
+    // border: 1px solid white;
+    width: 65%;
+    margin: 0 auto;
+    text-align: left;
+
+    .submitButton {
+        text-align: right;
+    }
+
+    h4 {
+        margin-bottom: 10px;
+    }
+
+    .register {
+        padding: 10px;
+        
+        .registerLink {
+            color: white;
+        }
+    }
+
+    button {
+        height: 35px;
+        width: 70px;
+        border-radius: 5px;
+    }
+}
+
+.sandImage {
+    margin-top: 100px;
+    width: 100%;
+}

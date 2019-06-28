@@ -19,7 +19,10 @@ import {
     FETCH_TRIP_DATA_FAILURE,
     DELETE_TRIP_START,
     DELETE_TRIP_SUCCESS,
-    DELETE_TRIP_FAILURE
+    DELETE_TRIP_FAILURE,
+    EDIT_TRIP_START,
+    EDIT_TRIP_SUCCESS,
+    EDIT_TRIP_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -29,6 +32,7 @@ const initialState = {
     fetchingTripData: false,
     fetchingTrip: false,
     addingTrip: false,
+    editTrip: false,
     deleteTrip: false,
     userData: {},
     tripData: [],
@@ -169,6 +173,25 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 deleteTrip: false
+            }
+        case EDIT_TRIP_START:
+            return {
+                ...state,
+                error: '',
+                editTrip: true
+            }
+        case EDIT_TRIP_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                editTrip: false,
+                individualTripData: action.payload
+            }
+        case EDIT_TRIP_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                editTrip: false
             }
         default:
             return state;

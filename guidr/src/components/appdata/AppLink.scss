@@ -1,0 +1,15 @@
+nav {
+    text-align: right;
+    padding-top: 10px;
+
+    .navLink {
+        // margin-top: 80px;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .active {
+        display: none;
+    }
+}

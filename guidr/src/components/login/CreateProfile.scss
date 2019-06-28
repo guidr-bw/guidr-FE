@@ -1,0 +1,18 @@
+.profileForm {
+    color: white;
+
+    .taglineBox {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .profileBtn {
+        text-align: right;
+        margin: 50px 0;
+
+        button {
+            padding: 10px 25px;
+            width: 100px;
+        }
+    }
+}
