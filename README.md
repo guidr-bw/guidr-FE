@@ -17,5 +17,5 @@ I referenced a lot of docs plus dug through several previous projects. I also he
 * Ability to add photos
 
 
-deploy: https://nostalgic-cray-f6e949.netlify.app/
+deploy: https://nostalgic-cray-f6e949.netlify.app/  
 backend repo: https://github.com/guidr-bw/guidr-BE
